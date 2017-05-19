@@ -1,0 +1,36 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="campo_entrada">
+    <div class="ui grid">
+        <div class="eight wide computer column entrada">
+            <form method="post" class="ui form">
+                <div class="field">
+                    <label for="principal">Valor Principal</label>
+                </div>
+                <div class="ui left icon input fluid">
+                    <input type="text" name="principal" id="principal">
+                    <i class="dollar icon"></i>
+                </div>
+                <div class="field">
+                    <label for="juros">Juros</label>
+                </div>
+                <div class="ui left icon input fluid">
+                    <input type="text" name="juros" id="juros">
+                    <i class="percent icon"></i>
+                </div>
+                <div class="field">
+                    <label for="periodo">Periodo</label>
+                </div>
+                <div class="ui left icon input fluid">
+                    <input type="text" name="periodo" id="periodo">
+                    <i class="time icon"></i>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input" style="padding-top: 1%;">
+                        <button class="ui secondary button" type="submit" name="calcular">Calcular</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<footer class="ui inverted vertical footer segment ">
+    <div class="ui center aligned container">
+        <div class="ui stackable ubverted divided grid">
+            <div class="three wide column">
+                <h4 class="ui inverted header">Leonardo</h4>
+                <div class="ui inverted link list">
+                    <a href="https://www.facebook.com/leonardossev" target="_blank" class="item"><i class="facebook icon"></i>Facebook</a>
+                    <a href="https://github.com/LeonardoSSev" target="_blank" class="item"><i class="github icon"></i>GitHub</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">Rafael</h4>
+                <div class="ui inverted link list">
+                    <a href="https://www.facebook.com/rafa.araujo.3139" target="_blank" class="item"><i class="facebook icon"></i>Facebook</a>
+                    <a href="https://github.com/rafa-araujo" target="_blank" class="item"><i class="github icon"></i>GitHub</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">Thiago</h4>
+                <div class="ui inverted link list">
+                    <a href="https://www.facebook.com/thiago.morais.1029" target="_blank"class="item"><i class="facebook icon"></i>Facebook</a>
+                    <a href="https://github.com/thiagolmorais" target="_blank" class="item"><i class="github icon"></i>GitHub</a>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header">Grupo 6</h4>
+                <p>Projeto da disciplina de Programação Orientada a Objetos ministrada pelo professor Ricardo Pupo Larguesa</p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <a href="http://www.fatecpg.com.br/" target="_blank"><img src="images/logotipo-fatec-pg.png" class="ui centered small image"/></a>
+        <div class="ui horizontal inverted small divided">
+            <p>Código-fonte disponível no <a href="https://github.com/LeonardoSSev/Projeto03-G6-POO"  target="_blank" style="color: #FFF; text-decoration: underline;">Github</a> </p>
+        </div>
+    </div>
+</footer>         

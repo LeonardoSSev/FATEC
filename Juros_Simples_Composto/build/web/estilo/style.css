@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {height:100%;}
+
+.container{
+    min-height:100%;
+    position:relative;
+}
+
+.navbar {
+    background-color: #4d4d4d;
+}
+
+.navbar-inverse {
+    border-color: #fff;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-brand:hover {
+    color: #C8E6C6;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    background-color: black;
+    color: #FA5D58;
+}
+
+.navbar-brand {
+    font-size: 24px !important;
+    font-weight: 700;
+}
+.navbar-nav {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.section-title, .section-subtitle {
+    text-align: center;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    margin-top: 0;
+    font-weight: 700;    
+}
+
+.fonte-branca {
+    color: #fff;
+}
+
+
+footer {
+	text-align: center;
+	padding: 10px;
+	background-color: #4d4d4d;
+	color: #f1f1f1;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+}
+
+.links a:hover {
+    text-decoration: none;
+    color: #C8E6C6;
+}
+
+.footer-copyright {
+    background-color: #022400;
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+body a {
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out
+}
+
+.parag{
+    text-align: justify;
+    font-size: 18px;
+}
+
+.panel-profile-img {
+    max-width: 100px;
+    margin-top: -70px;
+    margin-bottom: 5px;
+    border: 3px solid #fff;
+    border-radius: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
+}
+
+.panel-heading {
+    height: 150px;
+    background-size: cover
+}
+
+.bg-felipe{
+    background-image: url('../imagens/fundo.jpg');
+}
+
+.bg-higor{
+    background-image: url('../imagens/fundo2.jpg');
+}
+
+.bg-jonatas{
+    background-image: url('../imagens/fundo3.jpg');
+}
+/*teste teste*/
+.bg-leonardo{
+    background-image: url('../imagens/fundo4.jpg');
+}

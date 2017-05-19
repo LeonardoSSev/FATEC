@@ -1,0 +1,6 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<header class="ui main text container">
+    <h1 class="ui header">Amortizações</h1>
+    <p>Aplicação de amortizações</p>
+  </header>

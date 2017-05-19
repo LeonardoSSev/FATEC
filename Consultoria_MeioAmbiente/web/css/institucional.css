@@ -1,0 +1,25 @@
+#hgroupinstitucional{
+    text-align: center;
+    color: #479030; 
+    font-family: "Gloria Hallelujah"; 
+    text-shadow: 2px 2px #000;
+    margin-top: 0;
+    padding-top: 0;
+}
+p{
+    text-align: center;
+}
+section{
+    padding-top: 2%;
+}
+table p{
+    margin-left: 50%;
+}
+
+table h2{
+    text-align: center;
+}
+
+.green{
+    height: 28px;
+}

@@ -1,0 +1,7 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<link rel="icon" href="libs/imgs/icon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="libs/imgs/icon.png" type="image/x-icon" />
+<link href="libs/css/bootstrap.css" type="text/css" rel="stylesheet"/> 
+<link href="libs/css/font-awesome.css" type="text/css" rel="stylesheet"/>
+<link href="libs/css/style.css" type="text/css" rel="stylesheet"/> 
