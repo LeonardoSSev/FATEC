@@ -1,0 +1,12 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="br.com.fatecpg.helpers.ServerHelpers"%>
+<%@page import="com.fatecpg.data.Usuario"%>
+<%@ page pageEncoding="UTF-8" %>
+<%
+    HttpSession userSession = request.getSession();
+    Usuario adminLogado = (Usuario) userSession.getAttribute("usuarioLogado");
+    if (!ServerHelpers.isAdminLogged(adminLogado) ) {
+        userSession.setAttribute("erro", "Acesso negado.");
+        response.sendRedirect(ServerHelpers.getRootPath(request) + "/index.jsp");
+    }
+%>

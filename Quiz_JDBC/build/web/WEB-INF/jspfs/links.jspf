@@ -1,0 +1,10 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="br.com.fatecpg.helpers.ServerHelpers"%>
+<%@ page pageEncoding="UTF-8" %>
+<link rel="icon" href="<%= ServerHelpers.getRootPath(request) %>/assets/img/quiz-icone.png" type="image/x-icon" />
+<link rel="shortcut icon" href="<%= ServerHelpers.getRootPath(request) %>/assets/img/quiz-icone.png" type="image/x-icon" />
+<link href="<%= ServerHelpers.getRootPath(request) %>/assets/css/bootstrap.css" rel="stylesheet" />
+<link href="<%= ServerHelpers.getRootPath(request) %>/assets/css/font-awesome.css" rel="stylesheet" />
+<link href="<%= ServerHelpers.getRootPath(request) %>/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+<link href="<%= ServerHelpers.getRootPath(request) %>/assets/css/custom.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />

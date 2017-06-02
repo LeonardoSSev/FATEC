@@ -1,0 +1,87 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="br.com.fatecpg.helpers.ServerHelpers"%>
+<%@ page pageEncoding="UTF-8" %>
+<!--MODAL DE CADASTRO-->
+<div id="cadastroModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Cadastro</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" action="auth/cadastro.jsp" method="POST">
+                    <br/>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
+                        <input type="text" class="form-control" name="nomeCadastro" placeholder="Nome" required />
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
+                        <input type="text" class="form-control" name="nomeUsuarioCadastro" placeholder="Nome de usuário" required />
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input type="password" class="form-control" name="senhaCadastro" id="senhaCadastro" placeholder="Senha" required />
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                        <input type="password" class="form-control" name="senha2" placeholder="Reescreva a senha" oninput="validaSenha(this)" required />
+                    </div>
+                    <button type="submit" class="btn btn-success ">Cadastrar</button>
+                    <hr/>
+                    Já é cadastrado?  <a href="#" data-dismiss="modal" data-target="#loginModal" data-toggle="modal">Faça o Login</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--FIM MODAL-->
+<!--MODAL DE LOGIN-->
+<div id="loginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Login</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" action="auth/login.jsp" method="POST">
+                    <br />
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
+                        <input type="text" class="form-control" placeholder="Nome de usuário " name="usernameLogin" required />
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                        <input type="password" class="form-control"  placeholder="Senha" name="senhaLogin" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary ">Entrar</button>
+                    <hr />
+                    Não possui cadastro? <a href="#" data-toggle="modal" data-target="#cadastroModal"  data-dismiss="modal">Clique aqui </a> 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--FIM MODAL-->
+<!--MODAL DE LOGOFF-->
+<div id="logoffModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Logoff</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">Deseja realmente sair da sessão?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-success ">Cancelar</a>
+                <a href="<%=ServerHelpers.getRootPath(request)%>/auth/logoff.jsp" class="btn btn-danger ">Sair</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--FIM MODAL-->

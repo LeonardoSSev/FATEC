@@ -1,0 +1,39 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<footer>
+    <div style="color:#fff;" class="text-center">
+        <div class="well well-sm main-footer"  style="background-color:#202020; border:0px">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h1 class="title-footer">Projeto 06</h1>
+                        </div>
+                        <div class="col-md-4 contact-email">
+                            <h2>
+                                <a href="https://github.com/JeffersonCN/poo-projeto-06">GitHub</a></h2>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row contact row-first">
+                                <div class="col-md-6">
+                                    <a href="https://github.com/CezCesario"target="_blank" class="github"><i class="fa fa-github"></i>Cesar Cesario</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="https://www.github.com/helamanspadari" target="_blank" class="github"><i class="fa fa-github"></i>Helaman Spadari</a>
+                                </div>
+                            </div>
+                            <div class="row contact">
+                                <div class="col-md-6">
+                                    <a href="http://www.github.com/jeffersoncn" target="_blank" class="github"><i class="fa fa-github"></i>Jefferson Nascimento</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="http://www.github.com/leonardossev" target="_blank" class="github"><i class="fa fa-github"></i>Leonardo Santos</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

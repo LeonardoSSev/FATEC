@@ -1,0 +1,96 @@
+<%@page import="br.com.fatecpg.helpers.ServerHelpers"%>
+<%@page import="com.fatecpg.data.Usuario"%>
+<%@ page pageEncoding="UTF-8" %>
+<%
+    HttpSession menuSession = request.getSession();
+    Usuario usuarioLogado = (Usuario) menuSession.getAttribute("usuarioLogado");%>
+<nav class="navbar navbar-inverse navbar-cls-top " role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="<%=ServerHelpers.getRootPath(request)%>/index.jsp">Quiz</a> 
+    </div>
+    <ul class="nav navbar-nav" style="padding-left: 2%;">
+        <%try {
+                    if (usuarioLogado == null) {%>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 2%;">
+        <%} else if (usuarioLogado.isAdmin()) {%>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 1%;">
+        <li class="navbar-text">Bem vindo, <%=usuarioLogado.getUsername()%></li>
+        <li><a href="#" data-toggle="modal" data-target="#logoffModal"><i class="fa fa-sign-out"></i> Sair</a></li>
+            <%} else {%>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 1%;">
+        <li class="navbar-text">Bem vindo, <%=usuarioLogado.getUsername()%></li>
+        <li><a href="#" data-toggle="modal" data-target="#logoffModal"><i class="fa fa-sign-out"></i> Sair</a></li>
+            <%}
+            } catch (Exception ex) {%>
+        <li>Erro: <%= ex.getMessage()%></li>
+            <%}%>
+    </ul>
+</nav>
+<nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="main-menu">
+            <li class="text-center">
+                <%if (usuarioLogado == null) {%>
+                <img src="<%=ServerHelpers.getRootPath(request)%>/assets/img/not-logged.png" class="user-image img-responsive"/>
+            </li>
+            <li>
+                <a class="active-menu"  href="<%=ServerHelpers.getRootPath(request)%>index.jsp"><i class="fa fa-dashboard "></i> Página Inicial</a>
+            </li>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#cadastroModal"<i class="fa fa-user lg"</i> Cadastro</a>
+            </li>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#loginModal"<i class="fa fa-sign-in lg"</i> Login</a>
+            </li>
+            <%} else if (usuarioLogado.isAdmin()) {%>
+            <img src="<%=ServerHelpers.getRootPath(request)%>/assets/img/user_admin.png" class="user-image img-responsive"/>
+            </li>
+            <li>
+                <a class="active-menu"  href="<%=ServerHelpers.getRootPath(request)%>/index.jsp"><i class="fa fa-dashboard fa-3x"></i> Página Inicial</a>
+            </li>
+            <li>
+                <a href="<%=ServerHelpers.getRootPath(request)%>/admin/index.jsp"><i class="fa fa-cogs lg"></i> Gerenciamento</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-users lg"></i> Usuários<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="<%=ServerHelpers.getRootPath(request)%>/admin/usuarios/index.jsp">Listar</a>
+                    </li>
+                    <li>
+                        <a href="<%=ServerHelpers.getRootPath(request)%>/admin/usuarios/create.jsp">Criar</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-list lg" ></i> Questões<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="<%=ServerHelpers.getRootPath(request)%>/admin/questoes/index.jsp">Listar</a>
+                    </li>
+                    <li>
+                        <a href="<%=ServerHelpers.getRootPath(request)%>/admin/questoes/create.jsp">Criar</a>
+                    </li>
+
+                </ul>
+            </li>
+            <%} else {%>
+            <img src="<%=ServerHelpers.getRootPath(request)%>/assets/img/user_player.png" class="user-image img-responsive"/>
+            </li>
+            <li>
+                <a class="active-menu"  href="<%=ServerHelpers.getRootPath(request)%>/index.jsp"><i class="fa fa-dashboard fa-3x"></i> Página Inicial</a>
+            </li>
+            <li>
+                <a href="<%=ServerHelpers.getRootPath(request)%>/perfil.jsp"><i class="fa fa-user lg"></i> Perfil</a>
+            </li>
+            <li>
+                <a href="<%=ServerHelpers.getRootPath(request)%>/quiz/start.jsp"><i class="fa fa-list lg"></i> Quiz</a>
+            </li>
+            <%}%>
+        </ul>
+    </div>
+</nav>
