@@ -1,0 +1,62 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02/05/2017, 00:57:01
+    Author     : Leonardo
+*/
+
+body{
+    position: relative;
+}
+
+footer{
+    text-align: center;
+    left: 0;
+    bottom: 0;
+}
+.content{
+    padding-bottom: 10%;
+}
+
+.parag{
+    text-align: justify;
+    font-size: 15px;
+}
+
+.panel-profile-img {
+    width: 100px;
+    height: 100px;
+    margin-top: -70px;
+    margin-bottom: 5px;
+    border: 3px solid #fff;
+    border-radius: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
+}
+
+.panel-heading {
+    height: 150px;
+    background-size: cover
+}
+
+.background-higor{
+    background-image: url(../images/fundo-higor.jpg);
+}
+
+.background-leonardo{
+    background-image: url(../images/fundo-leonardo.jpg);
+}
+
+.background-raul{
+    background-image: url(../images/fundo-raul.jpg);
+}
+
+.background-thiago1{
+    background-image: url(../images/fundo-thiago1.jpg);
+}
+
+.background-thiago2{
+    background-image: url(../images/fundo-thiago2.png);
+}

@@ -1,0 +1,12 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="header clearfix">
+    <nav>
+        <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="home.jsp">Home</a></li>
+            <li role="presentation"><a href="cliente.jsp">Cliente</a></li>
+            <li role="presentation"><a href="fornecedor.jsp">Fornecedor</a></li>
+        </ul>
+    </nav>
+    <h3 class="text-muted">Projeto 4 - POO</h3>
+</div>

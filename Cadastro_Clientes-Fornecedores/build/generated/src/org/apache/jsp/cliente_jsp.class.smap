@@ -1,0 +1,30 @@
+SMAP
+cliente_jsp.java
+JSP
+*S JSP
+*F
++ 0 cliente.jsp
+cliente.jsp
++ 1 menu.jspf
+WEB-INF/jspf/menu.jspf
++ 2 rodape.jspf
+WEB-INF/jspf/rodape.jspf
+*L
+1,15:52
+1#1,13:67
+15#0,64:79
+78,20:143
+97,16:163
+113,7:179,3
+120,2:200
+122:202,3
+123,5:205
+128:210,3
+129,8:213
+136,9:221
+144:230
+145,2:231,3
+147,6:237
+1#2,7:243
+152#0,4:250
+*E
