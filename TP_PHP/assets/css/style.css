@@ -1,0 +1,34 @@
+nav, footer{
+	background-color: #bdbdbd;
+}
+
+#menu a, footer{
+    text-align: center;
+    color: #212121
+}
+
+footer{
+	margin-top: 100px;
+	height: 100px;
+}
+
+.formulario{
+    margin-bottom: 10px;
+}
+
+i.fa-search{
+    color: red;
+    font-size: 25px;
+}
+
+#exibe-dados{
+	margin-top: 20px;
+}
+
+#procurar, ul#menu, form#inserir, #lista-inserir{
+	margin-top: 50px;
+}
+
+select#curso{
+	height: 35px;
+}
