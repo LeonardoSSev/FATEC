@@ -58,11 +58,10 @@ public class TPJava {
             String estado = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, o estado em que " + nome + " está localizado(a):", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
             String historia = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, a história de " + nome + ":", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
             
-            if(nome.isEmpty() || cidade.isEmpty() || estado.isEmpty() || historia.isEmpty()){
-                JOptionPane.showMessageDialog(null, "Dados não aceitos para cadastro!", "Destinos Turísticos", JOptionPane.ERROR_MESSAGE);
+            if((nome.isEmpty() || cidade.isEmpty() || estado.isEmpty() || historia.isEmpty()) || (nome.equals(null) || cidade.equals(null) || estado.equals(null) || historia.equals(null))){
+                exibeMensagem("Dados não aceitos para cadastro!", metodo);
             }else{
                 DestinoTuristico.destinosTuristicos.add(new DestinoTuristico(nome, cidade, estado, historia));
-                JOptionPane.showMessageDialog(null, "Destino Turístico cadastrado com sucesso!", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
                 flag = true;
             }
             verificaFlag(flag, metodo);
@@ -103,9 +102,7 @@ public class TPJava {
         if(!listagem.isEmpty()){
             String conteudo = "";
             String[] dados = buscarDestino();
-            
             boolean flag = false;
-
             try{
                 for (DestinoTuristico dt : DestinoTuristico.destinosTuristicos) {
                     if((dt.getNome().equalsIgnoreCase(dados[0])) && (dt.getCidade().equalsIgnoreCase(dados[1]))){
@@ -117,17 +114,18 @@ public class TPJava {
                             "\n\n\n";
 
                         JOptionPane.showMessageDialog(null, conteudo, "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
-                        dt.setNome(JOptionPane.showInputDialog(null, "Informe o novo nome para "+dt.getNome()+" no campo abaixo:", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE));
-                        dt.setCidade(JOptionPane.showInputDialog(null, "Informe, no campo abaixo, a cidade em que " + dt.getNome() + " está localizado(a):", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE));
-                        dt.setEstado(JOptionPane.showInputDialog(null, "Informe, no campo abaixo, o estado em que " + dt.getNome() + " está localizado(a):", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE));
-                        dt.setHistoria(JOptionPane.showInputDialog(null, "Informe, no campo abaixo, a história de " + dt.getNome() + ":", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE));
-                        flag = true;
+                        String nome = JOptionPane.showInputDialog(null, "Informe o novo nome para "+dt.getNome()+" no campo abaixo:", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
+                        String cidade = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, a cidade em que " + dt.getNome() + " está localizado(a):", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
+                        String estado = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, o estado em que " + dt.getNome() + " está localizado(a):", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
+                        String historia = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, a história de " + dt.getNome() + ":", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
+                        if(!(nome.isEmpty() || cidade.isEmpty() || estado.isEmpty() || historia.isEmpty()) || (nome.equals(null) || cidade.equals(null) || estado.equals(null) || historia.equals(null))){
+                            dt.setNome(nome);
+                            dt.setCidade(cidade);
+                            dt.setEstado(estado);
+                            dt.setHistoria(historia);
+                            flag = true;
+                        }        
                     }
-                }
-                if(flag){
-                    JOptionPane.showMessageDialog(null, "Destino alterado com sucesso!", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
-                } else{
-                    getMensagemFalha(metodo);
                 }
             }catch(Exception e){
                 getMensagemErro("Alterar", e);
@@ -159,12 +157,9 @@ public class TPJava {
                         if(excluir == JOptionPane.YES_OPTION){
                             DestinoTuristico.destinosTuristicos.remove(i);
                             flag = true;
-                            JOptionPane.showMessageDialog(null, "Destino excluído com sucesso!", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
                 }
-                
-                
             }catch(Exception e){
                 getMensagemErro("Excluir", e);
             }
@@ -175,27 +170,44 @@ public class TPJava {
     
     private static String[] buscarDestino(){
         String[] dados = new String[2];
+        
         dados[0] = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, o nome do destino que você deseja alterar:", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
         dados[1] = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, a cidade do destino que você deseja alterar:", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
-        return dados;
+                
+        
+        return dados;       
+    }
+    
+    private static void exibeMensagem(String mensagem, String status){
+        if(status.equals("Sucesso")){
+            JOptionPane.showMessageDialog(null, mensagem, "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, mensagem, "Destinos Turísticos", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     private static void verificaFlag(boolean flag, String metodo){
         if(flag){
-                getMensagemSucesso(metodo);
-            } else{
-                getMensagemFalha(metodo);
-            }
+            getMensagemSucesso(metodo);
+        } else{
+            getMensagemFalha(metodo);
+        }
     }
     
     private static void getMensagemSucesso(String metodo){
-        JOptionPane.showMessageDialog(null, "Destino " + metodo + "  com sucesso!", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
+        String mensagem = "Destino " + metodo + "  com sucesso!";
+        String status = "Sucesso";
+        exibeMensagem(mensagem, status);
     }
     private static void getMensagemFalha(String metodo){
-        JOptionPane.showMessageDialog(null, "Destino não " + metodo +"!", "Destinos Turísticos", JOptionPane.ERROR_MESSAGE);
+        String mensagem = "Destino não " + metodo +"!";
+        String status = "Falha";
+        exibeMensagem(mensagem, status);
     }
     private static void getMensagemErro(String metodo, Exception e){
-         JOptionPane.showMessageDialog(null, "Erro ao " + metodo + ":\n " + e, "Destinos Turísticos", JOptionPane.ERROR_MESSAGE);
+        String mensagem = "Erro ao " + metodo + ":\n " + e;
+        String status = "Erro";
+        exibeMensagem(mensagem, status);
     }
 }
     
