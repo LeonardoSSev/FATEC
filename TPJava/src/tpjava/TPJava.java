@@ -5,8 +5,6 @@
  */
 package tpjava;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import javax.swing.JOptionPane;
 
 
@@ -33,31 +31,19 @@ public class TPJava {
     
     public static void exibeMenu(int op, String buttons[]){
         do{
-            op = JOptionPane.showOptionDialog(null, "Bem vindo!\\nInforme uma opção através dos botões abaixo:", "Destinos Turísticos", JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[4]);
+            op = JOptionPane.showOptionDialog(null, "Bem vindo!\nInforme uma opção através dos botões abaixo:", "Destinos Turísticos", JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, buttons, buttons[4]);
                 switch(op){
                     case 0:
                          cadastrarDestino();
                          break;
                     case 1:
-                        try {
-                            listarDestinos();
-                        } catch (Exception e) {
-                            JOptionPane.showMessageDialog(null, "Erro:\n " + e, "Destinos Turísticos", JOptionPane.ERROR_MESSAGE);
-                        }
+                        String conteudo = listarDestinos();
                          break;
                     case 2:
-                         try {
-                            alterarDestino();
-                        } catch (Exception e) {
-                            JOptionPane.showMessageDialog(null, "Erro:\n " + e, "Destinos Turísticos", JOptionPane.ERROR_MESSAGE);
-                        }
+                        alterarDestino();
                          break;
                     case 3:
-                        try {
-                            excluirDestino();
-                        } catch (Exception e) {
-                            JOptionPane.showMessageDialog(null, "Cadastro Erro:\n " + e, "Destinos Turísticos", JOptionPane.ERROR_MESSAGE);
-                        }
+                        excluirDestino();
                          break;
                  }
          }while(op != 4);
@@ -68,7 +54,7 @@ public class TPJava {
             String nome = JOptionPane.showInputDialog(null, "Informe o nome do novo destino turístico no campo abaixo:", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
             String cidade = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, a cidade em que " + nome + " está localizado(a):", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
             String estado = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, o estado em que " + nome + " está localizado(a):", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
-            String historia = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, a história em que " + nome + " está localizado(a):", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
+            String historia = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, a história de " + nome + ":", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
             DestinoTuristico.destinosTuristicos.add(new DestinoTuristico(nome, cidade, estado, historia));
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Cadastro Erro:\n " + e, "Destinos Turísticos", JOptionPane.ERROR_MESSAGE);
@@ -77,7 +63,7 @@ public class TPJava {
         }        
     }
     
-    public static void listarDestinos() throws FileNotFoundException, IOException{
+    public static String listarDestinos(){
         String conteudo = "";
         try{    
             for (DestinoTuristico dt : DestinoTuristico.destinosTuristicos) {
@@ -97,10 +83,47 @@ public class TPJava {
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "Listagem Erro:\n " + ex, "Destinos Turísticos", JOptionPane.ERROR_MESSAGE);
         }
+        return conteudo;
     }
 
     private static void alterarDestino() {
+        String listagem = listarDestinos();
         
+        if(!listagem.isEmpty()){
+            String conteudo = "";
+
+            String destinoNome = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, o nome do destino que você deseja alterar:", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
+            String destinoCidade = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, a cidade do destino que você deseja alterar:", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
+            boolean flag = false;
+
+            try{
+                for (DestinoTuristico dt : DestinoTuristico.destinosTuristicos) {
+                    if((dt.getNome().equalsIgnoreCase(destinoNome)) && (dt.getCidade().equalsIgnoreCase(destinoCidade))){
+                        conteudo+=
+                            "Nome: "+ dt.getNome() + 
+                            "\nCidade: " + dt.getCidade() + 
+                            "\nEstado: " + dt.getEstado() +
+                            "\nHistória: " + dt.getHistoria()+ 
+                            "\n\n\n";
+
+                        JOptionPane.showMessageDialog(null, conteudo, "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
+                        dt.setNome(JOptionPane.showInputDialog(null, "Informe o novo nome para "+dt.getNome()+" no campo abaixo:", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE));
+                        dt.setCidade(JOptionPane.showInputDialog(null, "Informe, no campo abaixo, a cidade em que " + dt.getNome() + " está localizado(a):", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE));
+                        dt.setEstado(JOptionPane.showInputDialog(null, "Informe, no campo abaixo, o estado em que " + dt.getNome() + " está localizado(a):", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE));
+                        dt.setHistoria(JOptionPane.showInputDialog(null, "Informe, no campo abaixo, a história de " + dt.getNome() + ":", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE));
+                        flag = true;
+                    }
+                }
+                if(flag){
+                    JOptionPane.showMessageDialog(null, "Destino alterado com sucesso!", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
+                } else{
+                    JOptionPane.showMessageDialog(null, "Dados não encontrados.", "Destinos Turísticos", JOptionPane.ERROR_MESSAGE);
+                }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Alterar Erro:\n " + e, "Destinos Turísticos", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+
     }
 
     private static void excluirDestino() {
