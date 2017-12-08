@@ -91,14 +91,13 @@ public class TPJava {
         
         if(!listagem.isEmpty()){
             String conteudo = "";
-
-            String destinoNome = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, o nome do destino que você deseja alterar:", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
-            String destinoCidade = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, a cidade do destino que você deseja alterar:", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
+            String[] dados = buscarDestino();
+            
             boolean flag = false;
 
             try{
                 for (DestinoTuristico dt : DestinoTuristico.destinosTuristicos) {
-                    if((dt.getNome().equalsIgnoreCase(destinoNome)) && (dt.getCidade().equalsIgnoreCase(destinoCidade))){
+                    if((dt.getNome().equalsIgnoreCase(dados[0])) && (dt.getCidade().equalsIgnoreCase(dados[1]))){
                         conteudo+=
                             "Nome: "+ dt.getNome() + 
                             "\nCidade: " + dt.getCidade() + 
@@ -128,6 +127,13 @@ public class TPJava {
 
     private static void excluirDestino() {
         
+    }
+    
+    private static String[] buscarDestino(){
+        String[] dados = new String[2];
+        dados[0] = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, o nome do destino que você deseja alterar:", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
+        dados[1] = JOptionPane.showInputDialog(null, "Informe, no campo abaixo, a cidade do destino que você deseja alterar:", "Destinos Turísticos", JOptionPane.INFORMATION_MESSAGE);
+        return dados;
     }
 }
     
